@@ -1,8 +1,8 @@
 " Only do this when not done yet for this buffer 
-if exists("b:did_ftplugin") 
-finish 
-endif 
-let b:did_ftplugin = 1 
+" if exists("b:did_ftplugin") 
+"     finish 
+" endif 
+" let b:did_ftplugin = 1 
 
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR> 
 map <buffer> gd /def <C-R><C-W><CR> 

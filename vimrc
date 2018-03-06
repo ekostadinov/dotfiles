@@ -1,13 +1,17 @@
 set encoding=utf-8
-let g:vim_isort_map = '<C-i>'
 autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 syntax on
 let mapleader = " "
 colorscheme pychimp
+set hlsearch
+set number
+set ic " case insensitive search
+setlocal foldmethod=syntax " folding enabled
+let g:gitgutter_map_keys = 0 " gitgutter no extra mappings
 
 " syntastic checks
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -21,15 +25,6 @@ filetype plugin on
 let g:pydiction_location = '/c/DEV/pydiction/complete-dict'
 "let g:pydiction_location = '/c/Users/ekostadinov/.vim/bundle/pydiction/complete-dict'
 let g:pydiction_menu_height = 3
-
-" jedi-vim autocomplete
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
 
 " ctrlp.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -54,10 +49,6 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" code folding
-nnoremap <space> za
-vnoremap <space> zf
-
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
 \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
@@ -66,57 +57,46 @@ let g:ale_pattern_options = {
 " If you configure g:ale_pattern_options outside of vimrc, you need this.
 let g:ale_pattern_options_enabled = 1
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle/')
-
 " NERDTree
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" simplyfold
-let g:SimpylFold_docstring_preview = 1
-
 " powerline
 let g:Powerline_symbols = 'fancy'
 
+set nocompatible " use vim defaults
+filetype off " filetype needs to be off before Vundle
+
+" devicons should be last setting
+" let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol='x'
+set guifont=DroidSansMonoPLNerd:h12
+set encoding=utf-8
+let g:airline_powerline_fonts = 1
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle/')
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-"Plugin 'townk/vim-autolose'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'dracula/vim'
 Plugin 'w0rp/ale'
-Plugin 'FastFold'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'fisadev/vim-isort'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'lifepillar/vim-solarized8'
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
