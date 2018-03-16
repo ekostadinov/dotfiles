@@ -1,0 +1,24 @@
+" autocompelte line 
+ctrl L
+" format block 
+==
+" search in all files
+:grep -r @wip ./features/*
+:copen/cwin
+" search & highlight in file
+:?your-text-here
+" NERDTree toggle
+F4
+" visual split
+:vsplit
+" execute shell script in VIM
+:! ./scripts/my_shell.sh
+" fold
+f/F
+" switch windows
+ctrl WW
+" switch buffers
+TAB
+" copy cut paste
+yy dd p
+" 

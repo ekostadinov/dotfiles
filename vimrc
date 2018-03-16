@@ -9,6 +9,31 @@ set ic " case insensitive search
 setlocal foldmethod=syntax " folding enabled
 let g:gitgutter_map_keys = 0 " gitgutter no extra mappings
 
+" complete whole lines
+:imap <C-l> <C-x><C-l>
+
+" Python config
+set ts=4
+set autoindent
+set expandtab
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+set showmatch
+:hi SpecialKey ctermfg=grey guifg=grey70
+" set cursorcolumn
+" set cursorline
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+" Show trailing whitespace only after some text (ignores blank lines):
+" :match /\S\zs\s\+$
+:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+:set list
+highlight WhiteSpaceBol ctermbg=darkgrey
+" highlight WhiteSpaceMol ctermbg=darkgrey
+" match WhiteSpaceMol / /
+2match WhiteSpaceBol /^ \+/
+
 " syntastic checks
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
@@ -61,18 +86,12 @@ let g:ale_pattern_options_enabled = 1
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+nnoremap <F4> :NERDTreeToggle<CR>
 
 " powerline
 let g:Powerline_symbols = 'fancy'
-
 set nocompatible " use vim defaults
 filetype off " filetype needs to be off before Vundle
-
-" devicons should be last setting
-" let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol='x'
-set guifont=DroidSansMonoPLNerd:h12
-set encoding=utf-8
-let g:airline_powerline_fonts = 1
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -96,8 +115,9 @@ Plugin 'lifepillar/vim-solarized8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'greggroth/vim-cucumber-folding'
 
+" alternatively, pass a path where Vundle should install plugins
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
