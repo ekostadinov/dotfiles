@@ -47,8 +47,7 @@ let g:syntastic_check_on_wq = 0
 " autocomplete python via dictionary
 " https://github.com/rkulla/pydiction to add more dictionaries
 filetype plugin on
-let g:pydiction_location = '/c/DEV/pydiction/complete-dict'
-"let g:pydiction_location = '/c/Users/ekostadinov/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 let g:pydiction_menu_height = 3
 
 " ctrlp.vim
