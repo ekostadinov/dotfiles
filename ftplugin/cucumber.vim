@@ -24,7 +24,7 @@ if !exists("g:no_plugin_maps") && !exists("g:no_cucumber_maps")
   let b:undo_ftplugin .= "| sil! iunmap! <C-]>| sil! iunmap! <C-W>]| sil! iunmap! <C-W><C-]>| sil! iunmap! <C-W>}"
 endif
 
-function! s:jump(command,count)
+function! jump(command,count)
   let steps = s:steps('.')
   if len(steps) == 0 || len(steps) < a:count
     return 'echoerr "No matching step found"'

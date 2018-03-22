@@ -6,11 +6,16 @@ colorscheme pychimp
 set hlsearch
 set number
 set ic " case insensitive search
+set incsearch " highlight while search
+set smartcase
 setlocal foldmethod=syntax " folding enabled
 let g:gitgutter_map_keys = 0 " gitgutter no extra mappings
 
 " complete whole lines
 :imap <C-l> <C-x><C-l>
+
+" nerdtree
+let NERDTreeIgnore = ['\.pyc$']
 
 " Python config
 set ts=4
@@ -21,7 +26,10 @@ set shiftwidth=4
 set showmatch
 :hi SpecialKey ctermfg=grey guifg=grey70
 " set cursorcolumn
-" set cursorline
+set cursorline
+" highlighting all occurences of the word under cursor
+:autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
+:let HlUnderCursor=1
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
