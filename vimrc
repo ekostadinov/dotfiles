@@ -18,6 +18,7 @@ augroup vimrc_todo
           \ containedin=.*Comment,vimCommentTitle
 augroup END
 hi def link MyTodo Todo
+highlight MyTodo   ctermfg=magenta guifg=#00ffff
 
 " complete whole lines
 :imap <C-l> <C-x><C-l>
@@ -50,6 +51,7 @@ set showmatch
 " highlighting all occurences of the word under cursor
 :autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
 :let HlUnderCursor=1
+" keyword args highlight
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
