@@ -9,3 +9,5 @@ It is a bit barbaric, but I'm able to move pretty much freely between environmen
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
+
+(Optional) run inside VIM `:set runtimepath^=~/.vim/bundle/Vundle.vim`
