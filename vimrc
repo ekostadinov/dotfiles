@@ -24,7 +24,7 @@ highlight MyTodo   ctermfg=magenta guifg=#00ffff
 :imap <C-l> <C-x><C-l>
 
 " nerdtree
-let NERDTreeIgnore = ['\.pyc$']
+" let NERDTreeIgnore = ['\.pyc$']
 
 " cursor highlighting
 if &term =~ "xterm\\|rxvt"
@@ -111,12 +111,18 @@ let g:ale_pattern_options = {
 " If you configure g:ale_pattern_options outside of vimrc, you need this.
 let g:ale_pattern_options_enabled = 1
 
+" netrw
+nmap = :Vex<CR>
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
+let g:netrw_hide = 1
+let g:netrw_liststyle= 3
+
 " NERDTree
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nnoremap <F4> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" nnoremap <F4> :NERDTreeToggle<CR>
+" let NERDTreeShowHidden=1
 
 " powerline
 let g:Powerline_symbols = 'fancy'
@@ -142,7 +148,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'lifepillar/vim-solarized8'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'greggroth/vim-cucumber-folding'
