@@ -1,7 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/evgeni/athlon_projects/cobalt-components'
-let g:netrw_dirhist_2='/Users/evgeni/athlon_projects/cobalt-components/node_modules'
-let g:netrw_dirhist_3='/Users/evgeni/athlon_projects/cobalt-components/node_modules/@angular-devkit'
-let g:netrw_dirhist_4='/Users/evgeni/athlon_projects/cobalt-components/node_modules/@angular-devkit/architect'
-let g:netrw_dirhist_5='/Users/evgeni/athlon_projects/cobalt-components/node_modules/@angular-devkit/architect/src'
+let g:netrw_dirhist_1='/Users/evgeni/Desktop/autot'
+let g:netrw_dirhist_2='/Users/evgeni/Desktop/autot/dsl'
+let g:netrw_dirhist_3='/Users/evgeni/Desktop/autot'
+let g:netrw_dirhist_4='/Users/evgeni/Desktop/autot/dsl'
+let g:netrw_dirhist_5='/Users/evgeni/Desktop/autot'
